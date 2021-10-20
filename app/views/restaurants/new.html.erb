@@ -1,0 +1,13 @@
+
+<div class="row justify-content-center">
+<h2>Agrega un nuevo restaurante</h2>
+  <div class="col-12 col-md-8 col-lg-4 p-3 rounded mb-lg-5 bg-white text-dark">
+    <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name, label: "califica del 1 a 5"%>
+    <%= f.input :address, label: "Direccion" %>
+    <%= f.input :phone_number, label: "Phone"%>
+    <%= f.input :category, label: "Categoria" , as: :select, collection: ['chinese', 'italian', 'japanese', 'french', 'belgian']%>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

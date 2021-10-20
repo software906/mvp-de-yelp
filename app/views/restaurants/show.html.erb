@@ -1,0 +1,22 @@
+
+<p><h1> <%= @restaurant.name %> </h1><h3><%= link_to "editar", edit_restaurant_path(@restaurant) %> | <%= link_to "borrar", restaurant_path(@restaurant), method: :delete, data: {confirm: "estas seguro"} %></h3></p>
+<hr>
+<p>Información:</p>
+<ul>
+  <li>Address: <%=  @restaurant.address %></li>
+  <li>Phone: <%= @restaurant.phone_number %></li>
+  <li>Category <%= @restaurant.category %></li>
+</ul>
+<hr>
+<h2>Reviews <small><%= link_to "agrega tu review", new_restaurant_review_path(@restaurant) %></small></h2>
+<ul>
+  <% if @restaurant.reviews.count.positive?  %>
+    <% @restaurant.reviews.each do |review|  %>
+      <li><%= review.content %> | <%= review.rating %></li>
+    <% end  %>
+  <% else %>
+    <li>El Restaurante aun no tiene reseñas</li>
+  <% end %>
+</ul>
+<hr>
+<%= link_to "Volver a los articulos", restaurants_path %>

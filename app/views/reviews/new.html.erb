@@ -1,0 +1,6 @@
+<h2>Agrega una nueva review del restaurante <%= @restaurant.name %> </h2>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<%= f.input :rating, label: "califica del 1 a 5", collection: 1..5%>
+<%= f.input :content, label: "descripcion de la reseña" %>
+<%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
